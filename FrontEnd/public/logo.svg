@@ -1,0 +1,66 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 512"
+  fill="none"
+>
+  <!-- Main color -->
+  <defs>
+    <style>
+      .c { fill: #2ABEAD; }
+    </style>
+  </defs>
+
+  <!-- Document -->
+  <path
+    class="c"
+    d="M140 64h168l64 64v256a32 32 0 0 1-32 32H140a32 32 0 0 1-32-32V96a32 32 0 0 1 32-32z"
+  />
+
+  <!-- Fold -->
+  <path
+    d="M308 64v64h64"
+    fill="#ffffff"
+  />
+
+  <!-- Text lines -->
+  <rect x="170" y="120" width="80" height="14" rx="7" fill="#ffffff"/>
+  <rect x="170" y="150" width="110" height="14" rx="7" fill="#ffffff"/>
+
+  <!-- Bar chart -->
+  <rect x="180" y="260" width="32" height="80" rx="6" fill="#ffffff"/>
+  <rect x="230" y="220" width="32" height="120" rx="6" fill="#ffffff"/>
+  <rect x="280" y="180" width="32" height="160" rx="6" fill="#ffffff"/>
+
+  <!-- Curved swoosh -->
+  <path
+    d="M120 300c60 40 160 40 220-10l10 20c-80 60-200 60-260-10z"
+    fill="#2ABEAD"
+  />
+
+  <!-- Magnifying glass -->
+  <circle cx="340" cy="320" r="72" fill="#ffffff"/>
+  <circle cx="340" cy="320" r="56" fill="#2ABEAD"/>
+
+  <!-- Dollar symbol -->
+  <text
+    x="320"
+    y="350"
+    font-size="72"
+    font-weight="700"
+    fill="#ffffff"
+    font-family="Arial, Helvetica, sans-serif"
+  >
+    $
+  </text>
+
+  <!-- Handle -->
+  <rect
+    x="385"
+    y="365"
+    width="90"
+    height="28"
+    rx="14"
+    transform="rotate(45 385 365)"
+    fill="#2ABEAD"
+  />
+</svg>

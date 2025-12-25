@@ -1,0 +1,4 @@
+.vercel
+FrontEnd/node_modules/
+FrontEnd/dist/
+BackEnd/node_modules/
