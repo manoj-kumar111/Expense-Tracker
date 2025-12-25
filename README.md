@@ -3,13 +3,18 @@
 ## Overview
 This is a full-stack Expense Tracker application built with React for the frontend and Node.js/Express with MongoDB for the backend. Users can sign up, log in, create, view, update, and manage their expenses securely.
 
+## Live Demo (Production)
+🔗 https://expense-tracker-teal-delta.vercel.app/
+
+> The application is fully deployed. The frontend is hosted on Vercel and communicates with a production-ready backend hosted on Render.
+
 ## Tech Stack
 ### Frontend
-- React 19 with Vite
-- Redux Toolkit for state management
+- React 18 with Vite
+- React Query for data fetching
 - Tailwind CSS for styling
 - Radix UI for components
-- Axios for API requests
+- Fetch API for requests
 - React Router for navigation
 
 ### Backend
@@ -23,66 +28,82 @@ This is a full-stack Expense Tracker application built with React for the fronte
 - MongoDB (local or Atlas)
 - Git
 
-## Setup Instructions
+## Setup Instructions (Local Development)
 
 ### Backend
 1. Navigate to the Backend directory:
-   ```
-   cd BackEnd
-   ```
+cd BackEnd
+
+markdown
+Copy code
 2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Create a `.env` file in the BackEnd directory with the following:
-   ```
-   MONGO_URI=your_mongodb_connection_string
-   SECRET_KEY=your_jwt_secret_key
-   ```
-   **Note:** Do not commit `.env` to Git; it's ignored via `.gitignore`.
-4. Connect to the database and start the server:
-   ```
-   npm start
-   ```
-   The server will run on `http://localhost:5000`.
+npm install
+
+markdown
+Copy code
+3. Create a `.env` file in the BackEnd directory:
+MONGO_URI=your_mongodb_connection_string
+SECRET_KEY=your_jwt_secret_key
+CORS_ORIGIN=http://localhost:5173
+NODE_ENV=development
+
+markdown
+Copy code
+**Note:** Do not commit `.env` to Git; it is ignored via `.gitignore`.
+
+4. Start the backend server:
+npm start
+
+markdown
+Copy code
+The server will run on `http://localhost:3000` with APIs under `/api/v1`.
 
 ### Frontend
 1. Navigate to the Frontend directory:
-   ```
-   cd FrontEnd
-   ```
+cd FrontEnd
+
+markdown
+Copy code
 2. Install dependencies:
-   ```
-   npm install
-   ```
+npm install
+
+markdown
+Copy code
 3. Start the development server:
-   ```
-   npm run dev
-   ```
-   The app will run on `http://localhost:5173`.
+npm run dev
+
+pgsql
+Copy code
+The app will run on `http://localhost:5173`.
 
 ## Features
 - User authentication (Sign Up / Login)
 - Create, read, update, and delete expenses
 - View expenses in a table
+- Secure API with JWT authentication
 - Responsive UI with dark mode support
 
 ## API Endpoints
-- `POST /api/users/register` - Register user
-- `POST /api/users/login` - Login user
-- `GET /api/expenses` - Get all expenses (authenticated)
-- `POST /api/expenses` - Create expense
-- `PUT /api/expenses/:id` - Update expense
-- `DELETE /api/expenses/:id` - Delete expense
+- `POST /api/v1/user/register` – Register user
+- `POST /api/v1/user/login` – Login user
+- `GET /api/v1/user/logout` – Logout user
+- `PUT /api/v1/user/password` – Change password (authenticated)
+- `GET /api/v1/expense/getall` – Get all expenses (authenticated)
+- `POST /api/v1/expense/add` – Create expense
+- `PUT /api/v1/expense/update/:id` – Update expense
+- `DELETE /api/v1/expense/remove/:id` – Delete expense
+- `PUT /api/v1/expense/:id/done` – Mark expense as done/undone
 
 ## Running in Production
-- Backend: Use `npm run build` if needed, deploy to Heroku/Vercel with MongoDB Atlas.
-- Frontend: Build with `npm run build` and serve the dist folder.
+- The frontend is deployed on **Vercel**
+- The backend is deployed on **Render**
+- The frontend communicates with the backend using environment variables
+- All API calls are routed through the production backend URL
 
 ## Contributing
 1. Fork the repository
 2. Create a feature branch
-3. Commit changes
+3. Commit your changes
 4. Push to the branch
 5. Open a Pull Request
 

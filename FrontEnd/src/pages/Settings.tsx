@@ -268,12 +268,6 @@ export default function Settings() {
           </AlertDialog>
         </div>
       </div>
-
-      {/* Footer */}
-      <div className="text-center text-sm text-muted-foreground">
-        <p>ExpenseFlow v1.0.0</p>
-        <p className="mt-1">Made with ❤️ for smart financial management</p>
-      </div>
     </div>
   );
 }
