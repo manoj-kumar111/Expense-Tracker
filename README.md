@@ -4,7 +4,7 @@
 This is a full-stack Expense Tracker application built with React for the frontend and Node.js/Express with MongoDB for the backend. Users can sign up, log in, create, view, update, and manage their expenses securely.
 
 ## Live Demo (Production)
-🔗 https://expense-tracker-teal-delta.vercel.app/
+[check out the live demo here](https://expense-tracker-teal-delta.vercel.app/)
 
 > The application is fully deployed. The frontend is hosted on Vercel and communicates with a production-ready backend hosted on Render.
 
