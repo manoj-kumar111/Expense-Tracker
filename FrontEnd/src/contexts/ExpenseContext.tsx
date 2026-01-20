@@ -53,8 +53,8 @@ function mapBackendExpense(e: BackendExpense): Expense {
     title: e.description,
     amount: e.amount,
     category: e.category,
-    date: (e.createdAt ?? new Date().toISOString()).split('T')[0],
-    description: e.description,
+    date: e.date ? new Date(e.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+    description: e.notes || '',
   };
 }
 
@@ -100,6 +100,8 @@ export function createExpenseProvider() {
         description: expense.title,
         amount: expense.amount,
         category: expense.category,
+        date: expense.date,
+        notes: expense.description || '',
       }).then(res => {
         const mapped = mapBackendExpense(res.expense);
         setExpenses(prev => [mapped, ...prev]);
@@ -112,6 +114,8 @@ export function createExpenseProvider() {
         description: updatedFields.title,
         amount: updatedFields.amount,
         category: updatedFields.category,
+        date: updatedFields.date,
+        notes: updatedFields.description,
       }).then(() => {
         setExpenses(prev =>
           prev.map(expense =>

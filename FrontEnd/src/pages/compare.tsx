@@ -198,6 +198,9 @@ export default function Compare() {
                     {difference > 0 ? '+' : ''}{formatUSD(difference)}
                   </p>
                 </div>
+                <p className={cn('text-sm', difference > 0 ? 'text-destructive/80' : difference < 0 ? 'text-green-500/80' : 'text-muted-foreground')}>
+                  {difference > 0 ? '+' : ''}{formatINR(difference)}
+                </p>
                 <p className={cn('text-sm', difference > 0 ? 'text-destructive' : difference < 0 ? 'text-green-500' : 'text-muted-foreground')}>
                   {percentChange > 0 ? '+' : ''}{percentChange.toFixed(1)}% change
                 </p>

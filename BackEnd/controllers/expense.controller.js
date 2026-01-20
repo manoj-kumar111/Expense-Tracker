@@ -2,9 +2,9 @@ import { Expense } from "../models/expense.model.js";
 
 export const addExpense = async (req, res) => {
     try {
-        const {description, amount, category } = req.body;
+        const {description, amount, category, date, notes } = req.body;
         const userId = req.id; // current loggedin user id
-        if (!description || !amount || !category) {
+        if (!description || !amount || !category || !date) {
             return res.status(400).json({
                 message: "All fields are required.",
                 success: false
@@ -15,6 +15,8 @@ export const addExpense = async (req, res) => {
             description,
             amount,
             category,
+            date,
+            notes: notes || '',
             userId
         });
         return res.status(201).json({
@@ -103,10 +105,10 @@ export const removeExpense = async (req, res)=>{
 
 export const updateExpense = async(req, res)=>{
     try{
-        const {description, amount, category} = req.body;
+        const {description, amount, category, date, notes} = req.body;
 
         const expenseId = req.params.id;
-        const updateData = {description, amount, category};
+        const updateData = {description, amount, category, date, notes};
 
         const expense = await Expense.findByIdAndUpdate(expenseId, updateData, {new:true});
         return res.status(200).json({

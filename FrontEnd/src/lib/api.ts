@@ -44,12 +44,12 @@ export const api = {
     const suffix = qs.toString() ? `?${qs.toString()}` : "";
     return request<{ expense: BackendExpense[]; success: boolean }>("/expense/getall" + suffix);
   },
-  addExpense: (data: { description: string; amount: number; category: string }) =>
+  addExpense: (data: { description: string; amount: number; category: string; date: string; notes?: string }) =>
     request<{ expense: BackendExpense; success: boolean }>("/expense/add", {
       method: "POST",
       body: JSON.stringify(data),
     }),
-  updateExpense: (id: string, data: { description?: string; amount?: number; category?: string }) =>
+  updateExpense: (id: string, data: { description?: string; amount?: number; category?: string; date?: string; notes?: string }) =>
     request<{ success: boolean }>(`/expense/update/${id}`, {
       method: "PUT",
       body: JSON.stringify(data),
@@ -67,6 +67,8 @@ export type BackendExpense = {
   description: string;
   amount: number;
   category: string;
+  date?: string;
+  notes?: string;
   done?: boolean;
   createdAt?: string;
   updatedAt?: string;
